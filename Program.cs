@@ -1,8 +1,7 @@
 ﻿using System.Diagnostics;
 using BlobReader;
 
-string connectionString = "DefaultEndpointsProtocol=https;AccountName=stdevpublish;AccountKey=USuFSCQ1kV/Oc/rMC5lf50q1leO+qn44tzQC1fxT2cuijDDaH9XZFtyUL/GwdZCwYvft2K/or7nU291p1lKn5Q==;EndpointSuffix=core.windows.net";
-BlobService blobService = new (connectionString);
+BlobService blobService = new();
 /*bool jackBlobExists = await blobService.BlobExists("jack", "jack");
 bool realBlobExists = await blobService.BlobExists("kneip", "Pai/6776d4d1-249a-e811-a965-000d3a2899a3/enabledSubFunds.json");
 Console.WriteLine(jackBlobExists);
@@ -35,8 +34,7 @@ for (int x = 0; x < upperBound; x++)
 //await blobService.UploadToBlob("largedata", "largedata.json", fileStream);
 //Console.WriteLine(fileStream.Length);
 //fileStream.Close();
-Stopwatch stopwatch = Stopwatch.StartNew();
-string largeString = string.Concat(Enumerable.Repeat("jack", 100_000_000));
+//string largeString = string.Concat(Enumerable.Repeat("jack", 100_000_000));
 //string mediumString = string.Concat(Enumerable.Repeat("jack\n", 100));
 
 
@@ -46,8 +44,10 @@ string largeString = string.Concat(Enumerable.Repeat("jack", 100_000_000));
 //await blobService.UploadMassiveJson("largedata", "largejson.json");
 //await blobService.UploadJsonCollection("largedata", "normaljson.json");
 //await blobService.UploadInBlocksInSeparateFiles("largedata", "largedata2.json", 10, largeString);
-//await blobService.ReadFromBlob("largedata", "normaljson.json");
+//await blobService.ReadFromBlobAsyncEnumerable("largedata", "normaljson.json");
 //blobService.UTF8Reader();
+//blobService.ReadBlobStreamUsingUtf8AndAsyncEnumerable();
 
+Stopwatch stopwatch = Stopwatch.StartNew();
 
 Console.WriteLine("Time taken:" + stopwatch.ElapsedMilliseconds + "ms");
